@@ -9,7 +9,7 @@ const MY_PDF_PORTION = {
 
 module.exports.generatePdfFromHtml  = async (htmlString)=> {
     const browser = await puppeteer.launch({
-        executablePath: '/usr/bin/chromium-browser',
+        executablePath: process.env.CHROMIUM_LOCATION,
         headless:true,
         args: ['--disable-dev-shm-usage','--no-sandbox'],
     });
