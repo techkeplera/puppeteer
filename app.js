@@ -4,7 +4,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require("cors");
 require('dotenv').config()
-console.log(process.env)
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -12,7 +11,7 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-var allowedOrigins = ['https://api.lexhero.com'];
+var allowedOrigins = ['https://api.lexhero.com','https://90.10.203.11'];
 app.use(cors({
     origin: function(origin, callback){
         // allow requests with no origin
