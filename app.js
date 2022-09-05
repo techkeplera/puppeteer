@@ -12,7 +12,7 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-var allowedOrigins = ['https://app.lexhero.com'];
+var allowedOrigins = ['https://api.lexhero.com'];
 app.use(cors({
     origin: function(origin, callback){
         // allow requests with no origin
