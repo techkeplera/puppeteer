@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/pdf', async function(req, res) {
-  const fileResponse = await generatePdfFromHtml(req.body.html)
+  const fileResponse = await generatePdfFromHtml(req.body.html, req.body.css)
   res.send({file: fileResponse.toString("base64")})
 });
 

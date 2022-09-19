@@ -7,16 +7,14 @@ const MY_PDF_PORTION = {
 };
 
 
-module.exports.generatePdfFromHtml  = async (htmlString)=> {
+module.exports.generatePdfFromHtml  = async (htmlString,css)=> {
     const browser = await puppeteer.launch({
         executablePath: process.env.CHROMIUM_LOCATION,
         headless:true,
         args: ['--disable-dev-shm-usage','--no-sandbox'],
     });
 
-    const styleCustom = `<style>p{font-size: 13px} span{font-size: 13px}</style>`
-
-    //
+    const cssRemoto = `<style>${css}</style>`
 
     var document = `
     <html>
@@ -33,7 +31,7 @@ module.exports.generatePdfFromHtml  = async (htmlString)=> {
           font-family: 'Montserrat', sans-serif;
         }
       </style>
-      ${styleCustom}
+      ${cssRemoto}
     </head>
     <body>
       ${htmlString}
