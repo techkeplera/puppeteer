@@ -1,6 +1,5 @@
 const puppeteer = require("puppeteer")
 const path = require("path")
-
 const MY_PDF_PORTION = {
     width: 1766,
     height: 1000,
@@ -22,15 +21,25 @@ module.exports.generatePdfFromHtml  = async (htmlString,css)=> {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+       
       <style>
         @import url(https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css);
       </style>
-       <style>
+      <style>
+      @font-face {
+        font-family: "Inter Variable";
+        src: url('public/stylesheets/Inter-VariableFont_slnt,wght.ttf') format('truetype');
+      }
+      body{
+        font-family: 'Inter Variable', sans-serif;
+      }
+        </style>
+       <!--<style>
         @import url(https://fonts.googleapis.com/css?family=Montserrat);
         body {
           font-family: 'Montserrat', sans-serif;
         }
-      </style>
+      </style>-->
       ${cssRemoto}
     </head>
     <body>
